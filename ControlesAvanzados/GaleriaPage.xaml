@@ -8,6 +8,30 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.PrimaryCommands>
+                <AppBarButton
+                    Icon="Add"
+                    Label="Agregar" Click="goToAdd"
+                    />
+                <AppBarButton
+                    Icon="Clock"
+                    Label="Alarma"
+                    />
+                <AppBarSeparator/>
+                <AppBarToggleButton
+                    Icon="Map"
+                    Label="Localización"
+                    />
+            </CommandBar.PrimaryCommands>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Label="Compartir"/>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+    
+    
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <SplitView
@@ -33,7 +57,7 @@
                              ItemsSource="{x:Bind MenuList}"
                              Background="Transparent"
                              Margin="0" Padding="0"
-                             
+                             ItemContainerStyle="{StaticResource MenuItemStyle}"
                              >
                         <ListBox.ItemTemplate>
                             <DataTemplate x:DataType="models:MenuItem">

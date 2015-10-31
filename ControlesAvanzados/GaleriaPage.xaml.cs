@@ -101,5 +101,11 @@ namespace ControlesAvanzados
                 split.IsPaneOpen = true;
             
         }
+
+        private void goToAdd(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(AddGalery),"Hola !!");
+        }
     }
 }
