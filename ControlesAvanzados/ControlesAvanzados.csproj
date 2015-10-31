@@ -102,6 +102,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditGalery.xaml.cs">
+      <DependentUpon>EditGalery.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GaleriaPage.xaml.cs">
       <DependentUpon>GaleriaPage.xaml</DependentUpon>
     </Compile>
@@ -137,6 +140,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="AddGalery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditGalery.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

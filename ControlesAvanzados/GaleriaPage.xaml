@@ -78,7 +78,8 @@
             </SplitView.Pane>
             <SplitView.Content>
                 <GridView
-                    ItemsSource="{x:Bind Galery}"
+                    x:Name="grid"
+                    ItemsSource="{x:Bind Galery}" SelectionChanged="editGalery"
                     >
                     <GridView.ItemTemplate>
                         <DataTemplate x:DataType="models:GaleryItem">
@@ -95,7 +96,7 @@
                                             >
                                 <TextBlock  Width="130" 
                                          
-                                         Text="{x:Bind Date}"
+                                         Text="{x:Bind Date, Mode=TwoWay}"
                                          Foreground="White"
                                          />
                                 </StackPanel>

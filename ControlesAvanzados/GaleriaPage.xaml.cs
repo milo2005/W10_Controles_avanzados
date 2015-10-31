@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -24,10 +25,22 @@ namespace ControlesAvanzados
     /// </summary>
     public sealed partial class GaleriaPage : Page
     {
+
+
         public GaleriaPage()
         {
             this.InitializeComponent();
             this.NavigationCacheMode = NavigationCacheMode.Enabled;
+
+
+        }
+
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility 
+                = AppViewBackButtonVisibility.Collapsed;
+            grid.SelectedIndex = -1;
         }
 
         private ObservableCollection<MenuItem> menuList;
@@ -107,6 +120,17 @@ namespace ControlesAvanzados
         {
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(AddGalery),"Hola !!");
+        }
+
+        private void editGalery(object sender, SelectionChangedEventArgs e)
+        {
+            if (grid.SelectedIndex != -1)
+            {
+                Frame rootFrame = Window.Current.Content as Frame;
+
+                rootFrame.Navigate(typeof(EditGalery), Galery.ElementAt(grid.SelectedIndex));
+            }
+            
         }
     }
 }
