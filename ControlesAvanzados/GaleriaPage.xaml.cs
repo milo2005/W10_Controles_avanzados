@@ -27,6 +27,7 @@ namespace ControlesAvanzados
         public GaleriaPage()
         {
             this.InitializeComponent();
+            this.NavigationCacheMode = NavigationCacheMode.Enabled;
         }
 
         private ObservableCollection<MenuItem> menuList;
