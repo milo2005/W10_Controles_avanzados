@@ -132,5 +132,10 @@ namespace ControlesAvanzados
             }
             
         }
+
+        private void putContent(object sender, SelectionChangedEventArgs e)
+        {
+            Contenido.Navigate(typeof(MainPage));
+        }
     }
 }

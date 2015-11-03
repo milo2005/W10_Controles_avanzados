@@ -57,7 +57,7 @@
                              ItemsSource="{x:Bind MenuList}"
                              Background="Transparent"
                              Margin="0" Padding="0"
-                             ItemContainerStyle="{StaticResource MenuItemStyle}"
+                             ItemContainerStyle="{StaticResource MenuItemStyle}" SelectionChanged="putContent"
                              >
                         <ListBox.ItemTemplate>
                             <DataTemplate x:DataType="models:MenuItem">
@@ -77,35 +77,44 @@
                 </StackPanel>
             </SplitView.Pane>
             <SplitView.Content>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                
                 <GridView
                     x:Name="grid"
                     ItemsSource="{x:Bind Galery}" SelectionChanged="editGalery"
                     >
-                    <GridView.ItemTemplate>
-                        <DataTemplate x:DataType="models:GaleryItem">
-                            <RelativePanel Width="130" Height="130" Margin="10">
-                                <Rectangle Width="130" Height="130">
-                                    <Rectangle.Fill>
-                                        <ImageBrush ImageSource="{x:Bind Url}" Stretch="UniformToFill"/>
-                                    </Rectangle.Fill>
-                                </Rectangle>
+                        <GridView.ItemTemplate>
+                            <DataTemplate x:DataType="models:GaleryItem">
+                                <RelativePanel Width="130" Height="130" Margin="10">
+                                    <Rectangle Width="130" Height="130">
+                                        <Rectangle.Fill>
+                                            <ImageBrush ImageSource="{x:Bind Url}" Stretch="UniformToFill"/>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
 
-                                <StackPanel Background="#99000000"
-                                            RelativePanel.AlignBottomWithPanel="True"
-                                            Padding="4"
-                                            >
-                                <TextBlock  Width="130" 
+                                    <StackPanel Background="#99000000"
+                                                RelativePanel.AlignBottomWithPanel="True"
+                                                Padding="4"
+                                                >
+                                    <TextBlock  Width="130" 
                                          
-                                         Text="{x:Bind Date, Mode=TwoWay}"
-                                         Foreground="White"
-                                         />
-                                </StackPanel>
+                                             Text="{x:Bind Date, Mode=TwoWay}"
+                                             Foreground="White"
+                                             />
+                                    </StackPanel>
 
 
-                            </RelativePanel>
-                        </DataTemplate>
-                    </GridView.ItemTemplate>
-                </GridView>
+                                </RelativePanel>
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                    </GridView>
+                    <Frame x:Name="Contenido" Grid.Column="1"/>
+                </Grid>
             </SplitView.Content>
         </SplitView>
         
